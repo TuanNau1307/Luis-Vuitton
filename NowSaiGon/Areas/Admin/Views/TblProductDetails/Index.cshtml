@@ -1,0 +1,90 @@
+﻿@model IEnumerable<NowSaiGon.Models.TblProductDetail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Published)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsNew)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifierDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifierBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Published)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNew)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pro.ProId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProDeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProDeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProDeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

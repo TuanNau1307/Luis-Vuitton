@@ -1,0 +1,120 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<NowSaiGon.Models.TblCategory>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="content-header">
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1>Quản lý loại sản phẩm</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="TblCategories" asp-action="Index">Danh sách loại sản phẩm</a></li>
+                <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="TblCategories" asp-action="Create">Thêm mới</a></li>
+            </ol>
+
+        </div>
+    </div>
+</div><!-- /.container-fluid -->
+</section>
+<<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách loại sản phẩm</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên loại</th>
+                                    <th>Published</th>
+                                    <th>IsNew</th>
+                                    <th>IsHot</th>
+
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Count() > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.CatName</td>
+
+
+                                            <td>
+                                                @if (item.Published == true)
+                                                {
+                                                    <span class="badge badge-primary">Public</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-primary">NOT-Public</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsNew == true)
+                                                {
+                                                    <span class="badge badge-primary">Public</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-primary">NOT-Public</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsHot == true)
+                                                {
+                                                    <span class="badge badge-primary">Public</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-primary">NOT-Public</span>
+                                                }
+                                            </td>
+                                            
+                                            <td>
+                                                <a asp-area="Admin" asp-controller="TblCategories" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Xem</a>
+                                                <a asp-area="Admin" asp-controller="TblCategories" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Sửa</a>
+                                                <a asp-area="Admin" asp-controller="TblCategories" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Xóa</a>
+                                            </td>
+
+                                        </tr>
+
+                                    }
+                                }
+
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                        <div arial-label="Page navigation example">
+                            <ul class="pagination">
+                                <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-area="Admin" asp-controller="TblCategories" asp-action="Index" />
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

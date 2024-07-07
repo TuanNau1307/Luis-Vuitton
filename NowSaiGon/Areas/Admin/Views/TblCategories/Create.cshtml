@@ -1,0 +1,87 @@
+﻿@model NowSaiGon.Models.TblCategory
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới loại sản phẩm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="TblCategories" asp-action="Index">Danh sách loại sản phẩm</a></li>
+                </ol>
+
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Thông tin danh mục</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-area="Admin" asp-controller="TblCategories" asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputName">Tên loại sản phẩm <span class="text-danger">*</span> </label>
+                <input type="text" class="form-control" asp-for="CatName" id="exampleInputName" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Description <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="Description" id="exampleInputTitle" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Position <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" asp-for="Position" id="exampleInputTitle" placeholder="Posintion">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Description <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="Description" id="exampleInputTitle" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Level <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" asp-for="Levels" id="exampleInputTitle" placeholder="Levels">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Parent <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" asp-for="Parent" id="exampleInputTitle" placeholder="Parent">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Image <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="Image" id="exampleInputTitle" placeholder="Image">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">Publich <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="Published" id="exampleInputTitle" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">IsHot <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="IsHot" id="exampleInputTitle" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTitle">IsNew <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" asp-for="IsNew" id="exampleInputTitle" placeholder="">
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Thêm mới</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
